@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="project3-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>Learning from Data | Theo Smith</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="images/card.webp" type="image/png">
+</head>
+<body class="project3-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <span class="left-align">THEO</span>
+                    <span class="right-align">SMITH</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about reveal" style="margin-top:100px;">
+        <div class="container about-container">
+            <h2>Learning from Data: Credit Card Fraud Detection</h2>
+            <p>
+                This project explores machine learning techniques for credit card fraud detection, focusing on managing imbalanced datasets and evaluating model performance using advanced metrics like AUPRC. The interactive Jupyter Notebook below allows you to dive into the implementation details and key findings.
+            </p>
+
+            <h3>Interactive Jupyter Notebook</h3>
+            <div class="notebook-container" style="width: 100%; height: 600px; overflow: auto; border: 1px solid #ccc;">
+                <iframe src="../notebook/notebook.html" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflowY = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Aqua Insight | Theo Smith</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="images/aqua_icon.png" type="image/png">
+</head>
+<body class="project3-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <span class="left-align">THEO</span>
+                    <span class="right-align">SMITH</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about reveal" style="margin-top:100px;">
+        <div class="container about-container">
+            <h2>Aqua Insight: Real-Time Air Quality Monitoring</h2>
+            <p>
+                Aqua Insight is a Python-based tool for analyzing air quality data from London's monitoring stations. 
+                This project leverages the LondonAir API to calculate key metrics, including daily and hourly averages, 
+                peak pollution hours, and visual trends over time. It provides valuable insights into environmental 
+                health, helping inform decisions on air quality management.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Real-time data analysis from the LondonAir API.</li>
+                <li>Daily, hourly, and monthly pollution averages.</li>
+                <li>Graphical visualization of air quality trends.</li>
+                <li>Handling and interpolation of missing data points.</li>
+                <li>Peak pollution hour identification.</li>
+            </ul>
+
+            <h3>Explore the Project</h3>
+            <p>Check out my GitHub repository for this project:</p>
+            <a href="https://github.com/Theossmith12/datadashboard" class="btn">View on GitHub</a>
+            
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflowY = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+        });
+    </script>
+</body>
+</html>

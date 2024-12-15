@@ -1,0 +1,909 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-image: url('../images/background.webp'); /* Background set to .webp image */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+p {
+    margin-bottom: 0.1rem;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white */
+    backdrop-filter: blur(10px); /* Add blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Add a slightly darker background on scroll for better visibility */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styling */
+.navbar .logo a {
+    font-family: 'Montserrat', sans-serif; /* Set the font */
+    font-weight: 700; /* Bold */
+    text-transform: uppercase; /* All caps */
+    color: #fff; /* White text */
+    text-align: center; /* Center align the text */
+    line-height: 1.0; /* Adjust spacing between the lines */
+    display: inline-block; /* Allows block-level stacking inside link */
+    text-decoration: none;
+    padding: 0;
+    margin:0;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.navbar .logo a .left-align,
+.navbar .logo a .right-align {
+    text-align: left; 
+    display: block; 
+    width: 100%; 
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+.navbar .logo a .left-align {
+    animation-delay: 0s; /* No delay */
+}
+
+/* SMITH - Slides in after THEO */
+.navbar .logo a .right-align {
+    animation-delay: 1s; 
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #007BFF;
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .navbar .nav-links.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    position: relative;
+
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+}
+section {
+    scroll-margin-top: 300px; /* Adjust this value to match your navbar's height */
+}
+
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero h1.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    color:#fff;
+    animation: slideIn 1.5s ease forwards;
+}
+@media (max-width: 768px) {
+    .hero h1.hero-title {
+        margin-bottom: 7rem; 
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Base Button Style */
+.btn {
+    background-color: #40e0d0;
+    border: 2px solid #007b7a;
+    border-radius: 30px;
+    box-shadow: #007b7a 4px 4px 0 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+}
+  
+.btn:hover {
+    background-color: #33d1c1;
+}
+  
+.btn:active {
+    box-shadow: #007b7a 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+  
+@media (min-width: 768px) {
+    .btn {
+        min-width: 120px;
+        padding: 0 25px;
+    }
+}
+  
+/* Centering "Post-i-vity" and "Key Features" Text */
+.about h2, .about h3 {
+    text-align: center; /* Center align the headings */
+    color: #fff; /* White text */
+    font-size: 2.5rem; /* Adjust font size if needed */
+    font-weight: bold; /* Bold the text */
+    margin-bottom: 2rem; /* Add spacing below the text */
+}
+
+/* Center the Bullet Points and Add a Gap After Bullets */
+.about ul {
+    list-style: none;      /* Remove default bullets */
+    padding: 0;            /* Remove default padding */
+    margin: 0 auto;        /* Center the list container */
+    display: block;        /* Ensure it behaves as a block element */
+    max-width: 600px;      /* Optional: limit the width for better readability */
+}
+
+
+
+.about ul li {
+    color: #eee; /* Light text color */
+    margin-bottom: 0.1rem; /* Space between list items */
+    position: relative; 
+    text-align: left;/* For positioning the custom bullet */
+    padding-left: 1.5rem;
+    padding-top: 5px;/* Space for the bullet */
+}
+
+.about ul li::before {
+    content: "\2022"; /* Use the default bullet character */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff; /* Bullet color */
+    font-size: 1.2rem; /* Adjust bullet size */
+}
+
+/* Center the "Click the icon to visit live app" Text */
+.about h3 + a {
+    display: block;
+    text-align: center; /* Center align the link */
+    margin-top: 1rem; /* Add some spacing */
+}
+
+/* Style the Link Icon: Smaller, Centered, Rounded with Border that Turns White on Hover */
+.about a img.rounded-icon {
+    width: 100px; /* Smaller icon */
+    height: 100px;
+    object-fit: contain; /* Keep the aspect ratio */
+    border-radius: 50%; /* Make the icon round */
+    border: 2px solid #007BFF; /* Initial border color */
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    margin: 0 auto; /* Center the icon */
+    display: block; /* Ensure it behaves as a block element */
+}
+
+.about a img.rounded-icon:hover {
+    border-color: #fff; /* Change border color to white on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Center the Icon Container */
+.about a {
+    display: block;
+    text-align: center; /* Center the link itself */
+}
+
+/* Glassy Sections */
+.about, .projects, .contact, footer {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 2rem;
+    padding: 4rem 0;
+}
+
+/* About Section */
+.about-container {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center align items */
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Constrain and Center Images in the project-images Container */
+.project-images {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the images */
+    align-items: center; /* Vertically center the images */
+    flex-wrap: wrap; /* Allow images to wrap if necessary */
+    gap: 2rem; /* Space between the images */
+}
+
+.project-images img {
+    width: 100%; /* Ensures the image stretches across its container */
+    max-width: 500px; /* Maximum width to constrain the size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for a polished look */
+    margin: 0; /* Ensure no extra margin around the image */
+    display: block; /* Ensures the image is block level */
+}
+
+/* Projects Section */
+.projects h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    padding: 1rem;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+    margin-bottom: 1rem; 
+}
+
+.project-icon {
+    width: 48px; 
+    height: 48px;
+    border-radius: 50%; 
+    object-fit: cover;
+    display: block; 
+}
+
+.project-card h3 {
+    margin: 1rem 0;
+    color: #fff;
+}
+
+.project-card p {
+    margin: 0 0 1rem 0;
+    color: #ddd;
+}
+
+.project-two {
+    position: relative;
+    padding-top: 3rem;
+}
+
+/* Special styling for project two icon to appear at top-left */
+.project-two .circle-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h2,
+.contact-info p {
+    color: #fff !important;
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: #eee;
+}
+
+.contact-info ul li i {
+    margin-right: 0.75rem;
+    color: #007BFF;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+/* Modern Form Styles */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.media-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.media-container iframe {
+    width: 100%; /* Fit to parent container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 800px;
+    margin: 0;/* Set a maximum width for larger screens */
+    aspect-ratio: 16 / 9; /*s Ensure correct aspect ratio */
+}
+
+@media (max-width: 768px) {
+    .media-container iframe {
+        max-width: 100%; /* Allow video to scale fully to fit smaller screens */
+    }
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.3);
+}
+
+/* Footer */
+footer {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-container p {
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.social-links a {
+    color: #fff;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007BFF;
+}
+.about-image img {
+    max-width: 300px;
+    float: left; /* Forces the image to align to the left */
+    margin-right: 20px; /* Adds some spacing between the image and the text */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-container,
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image img {
+        max-width: 300px;
+        float: left; /* Forces the image to align to the left */
+        margin-right: 20px; /* Adds some spacing between the image and the text */
+    }
+    
+
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+
+    /* Adjust hamburger menu icon color for better visibility */
+    .hamburger .bar {
+        background-color: #fff;
+    }
+
+    .navbar .nav-links {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .navbar .nav-links li a {
+        color: #fff;
+    }
+}
+
+/* Scroll Reveal Animations */
+.index-page .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.3s ease-out, transform 0.6s ease-out;
+}
+
+.index-page .reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.index-page .reveal-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.index-page .reveal-delay-2 {
+    transition-delay: 0.4s;
+}
+
+.index-page .reveal-delay-3 {
+    transition-delay: 0.6s;
+}
+
+.index-page .reveal-delay-4 {
+    transition-delay: 0.8s;
+}
+
+.about-image img {
+    width: 20%; 
+    max-width: 500px; 
+    height: auto; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    margin: 0;
+    display: block; 
+}
+
+/* Social Icons in Hero Section */
+.social-icons {
+    margin-top: 1.5rem; 
+    display: flex;
+    justify-content: center; 
+    gap: 1.5rem;
+}
+
+.social-icon img {
+    width: 60px; 
+    height: 60px;
+    object-fit: scale-down; 
+    border-radius: 50%; 
+    background-color: black; 
+    padding: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* LinkedIn Icon Specific Styling */
+.social-icon img[alt="LinkedIn Icon"] {
+    background-color: transparent; 
+    border: 5px solid black; 
+    border-radius: 50%; 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.social-icon img[alt="LinkedIn Icon"]:hover {
+    transform: scale(1.1); 
+    border-color: #007BFF;
+}
+
+.social-icon img:hover {
+    transform: scale(1.1); 
+    filter: none; 
+    background-color: #007BFF; 
+}
+
+/* Scroll Icon Styling */
+.scroll-icon {
+    position: absolute;
+    bottom: 100px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 60px; 
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; 
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    border: 4px solid #fff; 
+    border-radius: 50%;
+    background: transparent;
+}
+
+.scroll-icon .arrow {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent; 
+    border-right: 12px solid transparent;
+    border-top: 20px solid #fff;
+    animation: bounce 1.5s infinite;
+}
+@media (max-width: 768px) {
+    .scroll-icon {
+        display: none; 
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.scroll-icon.hidden {
+    opacity: 0; 
+    transform: translateY(20px); 
+    pointer-events: none; 
+}
+
+.scroll-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Projects Section Styling */
+.projects-scroll {
+    display: flex;
+    gap: 2rem; 
+    overflow-x: auto; 
+    padding: 1rem 0; 
+    scroll-snap-type: x mandatory; 
+}
+
+.projects-scroll::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.projects-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px; 
+}
+
+.projects-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.project-card {
+    flex: 0 0 auto; 
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    padding: 1rem;
+    width: 400px; 
+    text-align: center;
+    scroll-snap-align: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2); 
+}
+
+.project-icon {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background: transparent;
+    object-fit: cover;
+    border: 2px solid white; 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-icon:hover {
+    transform: scale(1.1); 
+    border-color: #007BFF; 
+}
+
+@media (max-width: 768px) {
+    .projects-scroll {
+        flex-direction: column; 
+        gap: 1rem; 
+        overflow-x: unset; 
+        padding: 0; 
+    }
+
+    .project-card {
+        width: 100%; 
+        max-width: 360px; 
+        margin: 0 auto; 
+    }
+
+    .project-header img {
+        width: 80px; 
+        height: 80px;
+    }
+}
+
+/* Project 3 Page Specific Overrides */
+.project3-page {
+    color: #fff;
+}
+
+.project3-page p,
+.project3-page li {
+    color: #fff;
+}
+
+.project3-page h1,
+.project3-page h2,
+.project3-page h3 {
+    font-size: 1.5em; /* Scale down to 75% of the current size */
+    color: #fff; 
+}
+
+.project3-page .about {
+    margin-top: 100px; /* As originally set inline */
+    padding: 4rem 2rem; /* Matches project3.html inline style */
+    margin: 2rem auto; /* Matches project3.html inline style */
+    max-width: 800px;  /* Matches project3.html inline style */
+    text-align: center; /* Matches project3.html inline style */
+}
+/* Container for contact list */
+.contact-icons {
+    list-style: none;
+    display: flex; /* Align horizontally */
+    gap: 20px; /* Space between items */
+    padding: 0;
+    margin: 0;
+    align-items: center; /* Vertically align icons and text */
+}
+
+/* Styling for email icons */
+.contacticon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Adjust container size as needed */
+    height: 50px;
+    background-color: transparent; /* No background */
+    border-radius: 50%; /* Circular container */
+    transition: transform 0.3s ease, border 0.3s ease; /* Smooth hover animation */
+    overflow: hidden;
+}
+
+.contacticon img {
+    width: 70%; /* Fully scale the image to fit the container */
+    height: 70%; /* Match container height */
+    object-fit: contain; /* Preserve the aspect ratio */
+    object-position: center; /* Center the icon */
+    transition: transform 0.3s ease; /* Smooth effect for hover states */
+}
+
+/* Hover effect for email icons */
+.contacticon:hover {
+    transform: scale(1.1); /* Slight enlargement */
+    border: 2px solid white; /* White border */
+}
+
+/* Styling for phone and location information */
+.contactinfo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    font-size: 16px; /* Adjust font size */
+    color: #fff; /* Text color */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.contactinfo i {
+    font-size: 18px; /* Icon size */
+    color: #007BFF; /* Icon color */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.contactinfo:hover {
+    color: #ff6347; /* Change text color on hover */
+}
+
+.contactinfo:hover i {
+    color: #ff6347; /* Change icon color on hover */
+}
+
+/* Ensure icons are aligned on the same line */
+@media screen and (max-width: 768px) {
+    /* Align icons horizontally and center */
+    .contact-icons {
+        display: flex;
+        justify-content: center; /* Center the icons */
+        align-items: center;
+        gap: 15px; /* Reduce gap for smaller screens */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+
+    /* Adjust size for smaller screens */
+    .contacticon {
+        width: 50px;
+        height: 50px;
+    }
+}

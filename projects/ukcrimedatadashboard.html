@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Project One | Theo Smith</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body class="project3-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <span class="left-align">THEO</span>
+                    <span class="right-align">SMITH</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about reveal">
+        <div class="container about-container">
+            <h2>Project One: Data Visualization Tool</h2>
+            <p>This is an interactive data dashboard built using Dash and Plotly, designed to visualize UK crime data. The dashboard allows users to filter data by crime types, outcomes, locations, and more. It also provides time-series trends and geographical visualizations.</p>
+
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Interactive dashboards</li>
+                <li>Customizable charts and filters</li>
+                <li>Real-time data updates</li>
+                <li>Responsive design</li>
+            </ul>
+
+            <p>Check out my GitHub repository for this project:</p>
+            <a href="https://github.com/Theossmith12/datadashboard" class="btn">View on GitHub</a>
+
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflowY = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+        });
+    </script>
+</body>
+</html>

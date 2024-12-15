@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="project3-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>Post-i-vity | Theo Smith</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="project3-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html#home">
+                    <span class="left-align">THEO</span>
+                    <span class="right-align">SMITH</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about reveal" style="margin-top:100px;">
+        <div class="container about-container">
+            <h2>Post-i-vity</h2>
+            <p>Post-i-vity is a fully-fledged web application where users can create posts on campus and share them with others in close geographical proximity. It aims to foster social interactions and community engagement among students. Users can complete challenges to earn coins, which can be redeemed for rewards within the app.</p>
+
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Interactive map</li>
+                <li>Geographical proximity-based posts</li>
+                <li>Challenges and milestones for user engagement</li>
+                <li>Reward system with redeemable coins</li>
+                <li>Built with Django, PostgreSQL, and modern web technologies</li>
+            </ul>
+
+            <h3>Screenshots:</h3>
+            <div class="project-images">
+                <img src="../images/mainscreen.png" alt="Main Screen">
+                <img src="../images/challenges.png" alt="Challenges Screen">
+            </div>
+            <h3>Click the icon to visit the live app:</h3>
+            <a href="https://post-i-tivity.me/">
+                <img src="../images/app.png" alt="Post-i-vity Icon" class="rounded-icon">
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflowY = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+        });
+    </script>
+</body>
+</html>
